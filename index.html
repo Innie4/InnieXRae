@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnieXRae</title>
+    <meta name="description" content="An interactive love story adventure">
+    <!-- Enhanced meta tags for better sharing -->
+    <meta property="og:title" content="Our Love Quest - The Journey Back to Us">
+    <meta property="og:description" content="An interactive romantic adventure that tells our love story">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f8b5c1">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Add accessibility improvements -->
+    <div id="skip-link" class="sr-only">
+        <a href="#main-content">Skip to main content</a>
+    </div>
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen" role="status" aria-label="Loading our love story">
+        <div class="loading-content">
+            <div class="heart-loader">
+                <i class="fas fa-heart" aria-hidden="true"></i>
+            </div>
+            <p>Loading our story...</p>
+        </div>
+    </div>
+
+    <!-- Landing Screen -->
+    <section id="landing" class="screen active" role="main">
+        <div id="particles-js" aria-hidden="true"></div>
+        <div class="landing-content">
+            <h1 class="main-title">The Journey Back to Us</h1>
+            <button id="start-btn" class="start-button" aria-describedby="start-description">
+                <span>Begin Our Quest</span>
+                <i class="fas fa-heart" aria-hidden="true"></i>
+            </button>
+            <div id="start-description" class="sr-only">Start the interactive love story adventure</div>
+            <button id="music-toggle" class="music-toggle" aria-label="Toggle background music">
+                <i class="fas fa-music" aria-hidden="true"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Level 1: Story Timeline -->
+    <section id="level1" class="screen">
+        <div class="level-header">
+            <h2>Chapter 1: Our Story</h2>
+            <div class="progress-bar">
+                <div class="progress-fill" id="timeline-progress"></div>
+            </div>
+        </div>
+        <div class="timeline-container">
+            <div class="timeline-item" data-chapter="0">
+                <div class="timeline-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>How We Met</h3>
+                    <p class="timeline-date">April 14, 2025</p>
+                    <p class="timeline-story">Hehe, the evening you replied to my text and we hit it off. Our first hiccup on our first day but we overcame it just as we always do.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-chapter="1">
+                <div class="timeline-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>Our Best Moments</h3>
+                    <p class="timeline-date">April 22, 2025</p>
+                    <p class="timeline-story">The first day we met. It was all sparks and nerves and I still feel every spark I felt then even now, I would love to feel it forever.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-chapter="2">
+                <div class="timeline-icon">
+                    <i class="fas fa-cloud-rain"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>The Challenge</h3>
+                    <p class="timeline-date">May 2025 </p>
+                    <p class="timeline-story">1st week of May, when life got complicated and we lost our way not realizig how much we mean to each other. Sometimes we need distance to understand what we truly value...</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-chapter="3">
+                <div class="timeline-icon">
+                    <i class="fas fa-heart-circle-plus"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>Of CourseI Want You Back</h3>
+                    <p class="timeline-date">Today</p>
+                    <p class="timeline-story">Because you make me laugh when I want to cry. Because you see the best in everyone. Because with you, I'm the person I want to be. Because our story isn't over yet, has it even been strted? We are in our prologue...</p>
+                </div>
+            </div>
+        </div>
+        <button id="level1-next" class="next-button" disabled>
+            Continue to Quiz <i class="fas fa-arrow-right"></i>
+        </button>
+    </section>
+
+    <!-- Level 2: Quiz Game -->
+    <section id="level2" class="screen">
+        <div class="level-header">
+            <h2>Chapter 2: How Well Do You Know Us?</h2>
+            <div class="quiz-progress">
+                <span id="quiz-current">1</span> of <span id="quiz-total">5</span>
+            </div>
+        </div>
+        <div class="quiz-container">
+            <div class="quiz-question">
+                <!-- Polaroid Photo -->
+                <div class="polaroid-container" id="quiz-polaroid">
+                    <div class="polaroid-tape"></div>
+                    <div class="polaroid-tape"></div>
+                    <div class="polaroid-tape"></div>
+                    <div class="polaroid-frame">
+                        <div class="polaroid-image" id="polaroid-image">
+                            <i class="fas fa-heart" id="polaroid-icon"></i>
+                        </div>
+                        <div class="polaroid-caption" id="polaroid-caption">Our Memories</div>
+                    </div>
+                </div>
+                <h3 id="question-text">Where was our first date?</h3>
+                <div class="quiz-options">
+                    <button class="quiz-option" data-answer="0">The cozy café downtown</button>
+                    <button class="quiz-option" data-answer="1">The park by the lake</button>
+                    <button class="quiz-option" data-answer="2">The movie theater</button>
+                </div>
+            </div>
+            <div class="quiz-feedback" id="quiz-feedback"></div>
+        </div>
+        <button id="level2-next" class="next-button" disabled>
+            Continue to Collection <i class="fas fa-arrow-right"></i>
+        </button>
+    </section>
+
+    <!-- Level 3: Collection Game -->
+    <section id="level3" class="screen">
+        <div class="level-header">
+            <h2>Chapter 3: Collect My Love</h2>
+            <div class="collection-progress">
+                <span id="collected-count">0</span> / <span id="total-count">12</span> messages collected
+            </div>
+        </div>
+        <div class="collection-container">
+            <div class="collection-instructions">
+                <p>Click the floating hearts to collect sweet messages!</p>
+            </div>
+            <div class="collection-area" id="collection-area">
+                <!-- Hearts will be dynamically generated here -->
+            </div>
+            <div class="collected-messages" id="collected-messages">
+                <!-- Collected messages will appear here -->
+            </div>
+        </div>
+        <button id="level3-next" class="next-button" disabled>
+            The Final Question <i class="fas fa-arrow-right"></i>
+        </button>
+    </section>
+
+    <!-- Final Screen: The Question -->
+    <section id="final" class="screen">
+        <div class="final-content">
+            <h2 class="final-intro">So here's the only question that matters...</h2>
+            <h1 class="final-question">Will you be my girlfriend? Again?</h1>
+            <div class="final-buttons">
+                <button id="yes-btn" class="yes-button">
+                    <i class="fas fa-heart"></i>
+                    Yes!
+                </button>
+                <button id="no-btn" class="no-button">
+                    <i class="fas fa-heart-broken"></i>
+                    No
+                </button>
+            </div>
+        </div>
+        <div id="celebration" class="celebration hidden">
+            <h2>You always make me happy but in this moment, you've me the happiest person alive!</h2>
+            <p>Our new chapter begins now... 💕</p>
+
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
